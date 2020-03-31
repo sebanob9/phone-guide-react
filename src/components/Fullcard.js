@@ -27,7 +27,7 @@ export default class Fullcard extends Component {
             phone = (
                 <section>
                     <picture>
-                        <img src={this.state.loadedPhone.imageFileName} className={classes.image}></img>
+                        <img src={this.state.loadedPhone.imageFileName} className={classes.image} alt={this.state.loadedPhone.imageFileName}></img>
                     </picture>
                     <article>
                         <div>

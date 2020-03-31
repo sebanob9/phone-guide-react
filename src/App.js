@@ -8,7 +8,7 @@ import Header from './components/header';
 import global from './styles/global.module.scss';
 import classes from './styles/cards.module.scss';
 
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   render() {

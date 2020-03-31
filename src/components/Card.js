@@ -10,7 +10,7 @@ class Card extends Component {
                     <article className={classes.article}>
                         <h2 className={classes.title}>{phoneModel.manufacturer} {phoneModel.name} </h2>
                         <div className={classes.boxImage}>
-                            <img src={phoneModel.imageFileName} className={classes.image}></img>
+                            <img src={phoneModel.imageFileName} className={classes.image} alt={phoneModel.imageFileName}></img>
                         </div>  
                         <div className={classes.boxData}>
                             <p className={classes.ram}>{phoneModel.ram}GB ram</p>
