@@ -1,0 +1,23 @@
+@import "./variables";
+@import url('https://fonts.googleapis.com/css?family=Solway:400,700&display=swap');
+
+
+body {
+    font-family: $main-font;
+    color: $gray;
+    font-size: $font-m;
+    letter-spacing: 0.3px;
+}
+
+a {
+  cursor: pointer;
+}
+
+h3, p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none !important;
+  color: $gray;
+}

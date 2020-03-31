@@ -1,0 +1,129 @@
+@import "./variables";
+
+picture {
+    display: flex;
+    justify-content: center;
+}
+
+.image {
+    height: 250px;
+    margin-top: 15px;
+}
+
+article {
+    & .title {
+        margin: 10px;
+        color: $main-color;
+        font-size: $font-m;
+        text-align: center;
+    }
+
+    & .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: $font;
+
+        & p {
+            margin: 2px;
+
+            &.description {
+                margin: 15px;
+                font-size: $font-s;
+                font-style: italic;
+            }
+        }
+    }
+
+    & span {
+        font-weight: bold;
+    }
+}
+
+.link {
+    width: 200px;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    padding: 5px;
+    border: 2px solid lightcoral;
+    border-radius: $radius;
+    background-color: lightcoral;
+    font-size: $font-m;
+    text-align: center;
+
+    & p {
+        color: $white;
+    }
+}
+
+// --------------------------------//
+//----------- DESKTOP -------------//
+// --------------------------------//
+@media screen and (min-width: 767px) {
+    section {
+        display: flex;
+        align-items: flex-start;
+        margin: 20px;
+    }
+
+    article {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        flex: 1 0 75%;
+        min-height: 500px;
+        padding: 0 25px;
+
+        & .title {
+            margin: 15px 0 0 0;
+            font-size: $font-l;
+        }
+
+        & .info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            & p {
+                margin: 5px;
+
+                &.description {
+                    margin: 30px;
+                    font-size: $font;
+                }
+            }
+        }
+    }
+
+    .image {
+        height: 500px;
+        margin-top: 0;
+    }
+
+    p {
+        font-size: $font-m;
+    }
+
+    .link {
+        &:hover {
+            background-color: $white;
+
+            & P {
+                color: lightcoral
+            }
+        }
+
+        &:active {
+            background-color: lightcoral;
+
+            & p {
+                color: $white;
+            }
+        }
+    }
+
+
+}// --- END DESKTOP ---
