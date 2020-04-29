@@ -7,10 +7,12 @@ import classes from '../styles/header.module.scss';
 export default class header extends Component {
     render() {
         return (
-            <Link to='/'>
+            <div>
                 <header className={classes.header}>
-                    <div><img src="guide-smiths.png" alt="Guide-Smiths logo"/></div>
-                    <h1>Phone Catalogue</h1>
+                    <a target="_blank" href="https://www.guidesmiths.com/" rel="noopener noreferrer">
+                        <img src="guide-smiths.png" alt="Guide-Smiths logo"/>
+                    </a>
+                    <Link to='/'><h1>Phone Catalogue</h1></Link>
                     <div className={classes.icons}>
                         <a target="_blank" href="https://www.linkedin.com/in/sebastian-real/" rel="noopener noreferrer" >
                             <img src="linkedin.png" alt="Linkedin logo"/>
@@ -21,7 +23,7 @@ export default class header extends Component {
                     </div>
                     
                 </header>
-            </Link>
+            </div>
         )
     }
 }

@@ -4,23 +4,28 @@ header {
   align-items: center;
   justify-content: space-around;
   transition: 1s;
-  height: 120px;
+  height: 100px;
   background-color: DarkSlateBlue;
   text-align: center; }
   header h1 {
     font-size: 28px;
     color: #fff;
     text-transform: uppercase;
-    margin: 10px 0 0 0; }
+    margin: 0 0 15px 0; }
   header img {
     height: 35px;
     margin: 10px; }
+  header .icons {
+    display: none; }
 
 @media screen and (min-width: 767px) {
   header {
-    flex-direction: row; }
+    flex-direction: row;
+    height: 120px; }
     header h1 {
       font-size: 42px;
       margin: 0; }
     header:hover {
-      background-color: #2f2667; } }
+      background-color: #2f2667; }
+    header .icons {
+      display: inherit; } }
