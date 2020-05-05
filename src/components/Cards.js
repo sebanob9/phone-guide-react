@@ -1,52 +1,34 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import Card from './Card';
-import axios from '../axios';
 import Spinner from './spinner/Spinner';
 
 import classes from '../styles/cards.module.scss';
+import * as phoneActions from './store/actions/index';
+
 
 class Cards extends Component {
-    state = {
-        apiResponse: [],
-        loading: false
+   
+    componentDidMount () {
+        this.props.onInitPhones();  
     }
 
-    componentDidMount () {
-        this.setState( { loading: true } );
-
-    axios.get( 'http://localhost:9000/phones' )
-        .then( response => {
-            const phones = response.data;
-            const updatedPhones= phones.map(phone => {
-                return {
-                    ...phone
-                }
-            });
-            this.setState({apiResponse: updatedPhones, loading: false});
-        } )
-        .catch(error => {
-            this.setState({loading: false});;
-        });
-}
-
-    phoneSelectedHandler = (id) => {
-        this.setState({selectedPhoneId: id});
-        console.log(this.state);
+    componentDidUpdate() {
+        console.log('PROPS:', this.props.phn);
     }
 
     render() {
         
-        let phones = this.state.apiResponse.map(phone => {
-                return <Card 
-                phoneModel={phone}
-                key={phone.id}
-                clicked={() => this.phoneSelectedHandler(phone.id)}
-                /> ;
-            });
+        let phones = <Spinner/>
             
-            if (this.state.loading) {
-                phones = <Spinner/>;
+            if (this.props.loading) {
+                phones = this.props.phn.map(phone => {
+                    return <Card 
+                    phoneModel={phone}
+                    key={phone.id}
+                    /> ;
+                });
             }
 
         return (
@@ -57,5 +39,18 @@ class Cards extends Component {
     }
 }
 
-export default Cards;
+const mapStateToProps = state => {
+    return {
+        phn: state.apiResponse,
+        loading: state.loading
+    };
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onInitPhones: () => dispatch(phoneActions.initPhones())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cards);
 

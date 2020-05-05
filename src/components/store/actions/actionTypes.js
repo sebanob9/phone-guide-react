@@ -1,0 +1,2 @@
+export const FETCH_PHONES = 'FETCH_PHONES';
+export const FETCH_PHONES_FAILED = 'FETCH_PHONES_FAILED';

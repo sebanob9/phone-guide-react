@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Aux from '../hoc/Auxiliary/Auxiliary';
 
 import classes from '../styles/header.module.scss';
 
@@ -7,7 +8,7 @@ import classes from '../styles/header.module.scss';
 export default class header extends Component {
     render() {
         return (
-            <div>
+            <Aux>
                 <header className={classes.header}>
                     <a target="_blank" href="https://www.guidesmiths.com/" rel="noopener noreferrer">
                         <img src="guide-smiths.png" alt="Guide-Smiths logo"/>
@@ -23,7 +24,7 @@ export default class header extends Component {
                     </div>
                     
                 </header>
-            </div>
+            </Aux>
         )
     }
 }

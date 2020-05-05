@@ -1,0 +1,1 @@
+export { initPhones } from './phoneLoader';

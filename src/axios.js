@@ -1,11 +1,16 @@
 import axios from 'axios';
 
-const instance = axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com'
+axios.get( 'http://localhost:9000/phones' )
+.then( response => {
+    const phones = response.data;
+    const updatedPhones= phones.map(phone => {
+        return {
+            ...phone
+        }
+    });
+    this.setState({apiResponse: updatedPhones, loading: false});
+} )
+.catch(error => {
+    this.setState({loading: false});
 });
-
-instance.defaults.headers.common['Authorization'] = 'AUTH TOKEN FROM INSTANCE';
-
-// instance.interceptors.request...
-
-export default instance;
+}

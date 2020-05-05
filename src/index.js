@@ -7,8 +7,17 @@ import * as serviceWorker from './serviceWorker';
 import axios from 'axios';
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducer from './components/store/reducer';
+import { createStore, applyMiddleware, compose } from 'redux';
+import reducer from './components/store/reducers/reducer';
+import thunk from 'redux-thunk';
+
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, composeEnhancers(
+    applyMiddleware(thunk)
+));
+
+
 
 axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
 axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
@@ -32,7 +41,6 @@ axios.interceptors.response.use(response => {
     return Promise.reject(error);
 });
 
-const store = createStore(reducer);
 
 ReactDOM.render(<Provider store={store}><App /></Provider>,document.getElementById('root')
 );
